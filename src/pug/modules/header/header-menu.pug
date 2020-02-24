@@ -1,0 +1,16 @@
+.header__menu
+	.container 
+		.header__content
+			include ../main-nav/main-nav 
+			.header__search.search
+				form.search__form
+					input(type="search" placeholder='Я хочу купить ...').search__input
+					button(type="submit").search__btn 
+						+icon('search','search__icon')
+					a.header__busket-mobile 
+						+icon('profile','header-busket__icon-mobile')
+					a.header__user-mobile
+						+icon('busket','header-busket__icon-mobile')
+						span.header-busket__num 15
+				
+				

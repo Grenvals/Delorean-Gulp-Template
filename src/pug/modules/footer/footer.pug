@@ -1,0 +1,54 @@
+mixin footerNavLink(link,text)
+	li.footer-nav__item
+		a(href=link).footer-nav__link=text
+
+footer.footer 
+	.footer__main 
+		.container 
+			.footer__navigation
+				.footer__item.footer-navigation
+					span.title Навигация
+					ul.footer-nav
+						+footerNavLink('#', 'Смартфоны и телефоны')
+						+footerNavLink('#', 'Ноутбуки и компютеры')
+						+footerNavLink('#', 'Бытовая техника, интерьер')
+						+footerNavLink('#', 'Встраиваемая техника')
+						+footerNavLink('#', 'Сантехника и мебель для ванной')
+						+footerNavLink('#', 'Освещение интерьера')
+						+footerNavLink('#', 'Все категории')
+				.footer__item
+					span.title Информация
+					ul.footer-nav
+						+footerNavLink('static-page.html', 'О компании')
+						+footerNavLink('#', 'Доставка')
+						+footerNavLink('#', 'Оплата')
+						+footerNavLink('#', 'Поставщикам')
+						+footerNavLink('#', 'Новости')
+						+footerNavLink('#', 'Отзывы')
+				.footer__item.footer-contacts
+					span.title Контакты
+					ul.footer-nav
+						+footerNavLink('#', 'Контакты')
+						+footerNavLink('#', 'Вопросы и ответы')
+						+footerNavLink('#', 'Карта сайта')
+					.footer-address
+						span.footer-address__location Киев, пр-т Правди, 12, сектор 1
+						+icon('location', 'footer-address__icon')
+			.footer__contacts
+				span.title Мы всегда на связи 
+				a(href="#").footer__phone +38 (095) 130-40-34 
+				a(href="").footer__email tecnoworld@tecno.com
+				span.title Мы в соцсетях
+				.footer-social.social
+					a(href="").footer-social__item 
+						+icon('facebook','footer-social__img')
+					a(href="").footer-social__item 
+						+icon('telegram','footer-social__img')
+					a(href="").footer-social__item 
+						+icon('instagram','footer-social__img')
+					a(href="").footer-social__item 
+						+icon('twitter','footer-social__img')
+	.footer__bottom 
+		.container 
+			span.copyright Все права защищены «ТЕХНОМИР» Copyright © 2019
+			a(href="").footer__personal-data Политика обработки персональных данных

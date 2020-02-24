@@ -1,0 +1,15 @@
+section.s-hits 
+	.container 
+		h2.title-section Топ продаж
+		.hits.tabs 
+			ul.tabs-navigation.hits-navigation
+				li(data-show-tab="top-hits").hits-navigation__item.tabs-navigation__item.tabs-navigation__item_active Топ продаж
+				li(data-show-tab="new-hits").hits-navigation__item.tabs-navigation__item Новинки
+				li(data-show-tab="sale-hits").hits-navigation__item.tabs-navigation__item Скидки	
+			.tabs-body 
+				.tab.top-hits.tab_active
+					include hits/top-hits
+				.tab.new-hits
+					include hits/new-hits
+				.tab.sale-hits
+					include hits/sale-hits 

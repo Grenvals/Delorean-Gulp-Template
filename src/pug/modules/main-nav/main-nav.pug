@@ -1,0 +1,26 @@
+nav.header__main-nav.main-nav
+	ul.main-nav__list
+		li.main-nav__item.catalog-open-btn
+			a(href="#").main-nav__link.main-nav__catalog.catalog-open-btn_mobile
+				.burger.main-nav__burger
+					span.burger__elements
+				span.main-nav__catalog-name Каталог товаров 
+			if(pageClass === "index-page") 
+				.main-nav__dropdown-wrapper.main-nav__dropdown-wrapper_active 
+					include main-nav-dropdown
+			else
+				.main-nav__dropdown-wrapper
+					include main-nav-dropdown 
+		li.main-nav__item 
+			a(href="category.html").main-nav__link.main-nav__top-category Компютерная техника
+		li.main-nav__item 
+			a(href="category.html").main-nav__link.main-nav__top-category  Смартфоны
+		if(pageClass === "index-page") 
+			li.main-nav__item.main-nav__logo-mobile
+				.main-nav__logo-link
+					img(src="static/images/general/logo.png" alt="Логотип").main-nav__logo-img
+		else 
+			li.main-nav__item.main-nav__logo-mobile
+					a(href="index.html").main-nav__logo-link
+						img(src="static/images/general/logo.png" alt="Логотип").main-nav__logo-img
+			

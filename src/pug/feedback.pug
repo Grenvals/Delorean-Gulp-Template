@@ -1,0 +1,30 @@
+extends template/main
+
+block variables
+	- var title = 'Обратная связь'
+	- var pageClass = 'feedback-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					span.breadcrumbs__current Обратная связь
+					
+	.review-form 
+		.container 
+			.review-form__header 
+				h1.title-page Обратная связь
+			.review-form__wrapper
+				aside.review-form__aside
+					span.title-block.title-block-green Новости
+					include modules/news/news-preview
+					include modules/news/news-preview
+					a(href="#").button.button-green Все новости
+				main.review-form__main
+					span.title-block.title-block-green Форма обратной связи
+					include modules/form/form-feedback
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features

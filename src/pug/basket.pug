@@ -1,0 +1,37 @@
+extends template/main
+
+block variables
+	- var title = 'Корзина'
+	- var pageClass = 'busket-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					span.breadcrumbs__current Корзина
+	.busket-clearance 
+		.container 
+			.busket-clearance__header 
+				h1.title-page Корзина
+			.busket-clearance__wrapper
+				aside.busket-clearance__aside
+					span.title-block.title-block-green Новости
+					include modules/news/news-preview
+					include modules/news/news-preview
+					a(href="").button.button-green Все новости
+				main.busket-clearance__main
+					span.title-block.title-block-green Товары в корзине
+					include modules/products/product-busket
+					include modules/products/product-busket
+					include modules/products/product-busket
+					include modules/products/product-busket
+					.busket-order
+						.busket-order__sum
+							span.busket-order__label Итого:
+							span.busket-order__count 79 996грн.
+						a.button.button-yellow Оформить заказ
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features

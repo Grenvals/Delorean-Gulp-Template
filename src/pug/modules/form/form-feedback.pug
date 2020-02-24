@@ -1,0 +1,23 @@
+.form-user
+	form(action="#").form-user__tech
+		.form-user__wrapper
+			.form-user__content
+				.form-user__block 
+					.form-user__item 
+						.form-user__label Имя: *
+						.form-user__input-wrapper  
+							input(type="text" name="login").form-user__input.form-user__name
+					.form-user__item 
+						.form-user__label E-mail: *
+						.form-user__input-wrapper  
+							input(type="email" name="email").form-user__input.form-user__email
+				.form-user__block.text-right 
+					.form-user__item
+						span.product-busket__name Мы всегда на связи!  
+						a(href="").footer__email tecnoworld@tecno.com
+			.form-user__item 
+				.form-user__label Ваше сообщение *
+				.form-user__input-wrapper  
+					textarea(name="message").form-user__message
+			.form-user__bottom-line
+				button(type="submit").button.button-yellow.button-right.form-user__submit Отправить

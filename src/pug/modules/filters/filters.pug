@@ -1,0 +1,218 @@
+.filter 
+	.filter__header
+		span.filter__title Фильтр товаров
+		a.filter__close.close
+	.filter__body
+		.filter-item.filter-item_active
+			.filter-item__header
+				span.filter-item__title Цена
+			.filter-item__body
+				.filter-slider 
+					.filter-slider__values
+						span от 
+						input(type="number").filter-slider__value.filter-slider__value_from
+						span до 
+						input(type="number").filter-slider__value.filter-slider__value_to
+						span грн.
+					.filter-slider__line(data-type='range-price')
+				
+		.filter-item.filter-item_active  
+			.filter-item__header
+				span.filter-item__title Клас
+			.filter-item__body
+				ul.filter-list
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Универсальные
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Для работы
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Игровые
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Для учебы
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Для несложных задач
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Для бизнеса
+		.filter-item.filter-item_active
+			.filter-item__header
+				span.filter-item__title Бренд
+			.filter-item__body
+				ul.filter-list
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Samsung
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Acer
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Asus
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Lenovo
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Hp
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Apple
+		.filter-item.filter-item_active
+			.filter-item__header
+				span.filter-item__title Тип устройства
+			.filter-item__body
+				ul.filter-list
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Ноутбук
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Нетбук
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Трансформер
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Ультрабук
+		.filter-item.filter-item_active
+			.filter-item__header
+				span.filter-item__title Диагональ екрана
+			.filter-item__body
+				ul.filter-list
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 9"-12 
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 13"-13,9"
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 14"
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 15"-15,6"
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 17'' и более
+		.filter-item.filter-item_active
+			.filter-item__header
+				span.filter-item__title Количество ядер
+			.filter-item__body
+				ul.filter-list
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 2 ядра
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 4 ядра
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 6 ядер
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 8 ядер
+		.filter-item
+			.filter-item__header
+				span.filter-item__title Объем ОЗУ
+			.filter-item__body
+				ul.filter-list
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 2 гб 
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text  4 гб 
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text  6 гб 
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text  8 гб
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text 12 гб и более
+		.filter-item
+			.filter-item__header
+				span.filter-item__title Тип видеокарты
+			.filter-item__body
+				ul.filter-list
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Дискретный
+					li.filter-list__item
+						label.checkbox
+							input(type="checkbox")
+							span.checkbox__custom
+							span.checkbox__text Интегрированный
+	.filter__footer
+		a.button.button-green.filter-button
+			span.filter-button__title Показать:
+			span.count-text 30
+		a.link Очистить

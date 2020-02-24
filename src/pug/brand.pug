@@ -1,0 +1,50 @@
+extends template/main
+
+block variables
+	- var title = 'Бренд Samsung'
+	- var pageClass = 'search-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Бренд Samsung 
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Все бренди  
+				li.breadcrumbs__item
+					span.breadcrumbs__current Samsung 
+	section.s-brends 
+		.container 
+			h1.title-page Samsung 
+			.brand__info 
+				.brand__logo
+					.brand__picture-wrap
+						img(src="static/images/content/brands/samsung-logo.png", alt="samsung").brand__picture
+				.brand__description 
+					p.text.text-header  Samsung Group  — южнокорейская группа компаний, один из крупнейших в мире, основанная в 1938 году. На мировом рынке известен как производитель высокотехнологичных компонентов, включая полноцикловое производство интегральных микросхем, телекоммуникационного оборудования, бытовой техники, аудио- и видеоустройств. Главный офис компании расположен в Сувоне.
+					p.text По статистике исследовательской компании DisplaySearch Samsung Electronics занимает лидирующие позиции среди ведущих телевизионных брендов на мировом рынке, 
+					p.text В настоящее время Samsung Electronics все знают как новатора в мире современных технологий, Samsung Electronics по праву включен в двадцатку крупнейших брендов мирового рынка. Продукция Samsung Electronics имеет 3 года обязательной гарантии, потребитель имеет право на бесплатное сервисное обслуживание в авторизованных центрах сервиса всей продукции, купленной у Samsung Electronics
+			.brand__product
+				span.title-block.brand__product-title Лучшие товары бренда
+				.products-line-slider
+					.js-products-line-slider.owl-carousel
+						.product-line-slider__item
+							include modules/products/preview-1
+							include modules/products/preview-1
+						.product-line-slider__item
+							include modules/products/preview-2
+							include modules/products/preview-2
+						.product-line-slider__item
+							include modules/products/preview-2
+							include modules/products/preview-2
+						.product-line-slider__item
+							include modules/products/preview-2
+							include modules/products/preview-2
+						.product-line-slider__item
+							include modules/products/preview-2
+							include modules/products/preview-2
+			.content-block 
+				span.title-block.title-block-green Мировые бренды и их товары 
+				p.text Сегодня – как и каждый день, компания ТехноМир предлагает вам лучшую мировую электронику, заботясь при этом о комфорте, приятных впечатлениях и выгодной цене всех ваших покупок. Именно поэтому мы активно внедряем в Украине инновационный формат мультиканальной продажи, который позволяет Вам в любое время выбирать, сравнивать, покупать, а при необходимости и возвращать любые товары наиболее удобным для вас способом по единым ценам: в магазине или в онлайне. Есть вопросы? Пожалуйста, звоните в нашу информационную службу, а также смело обращайтесь за консультацией к менеджерам в любом нашем магазине.
+				p.text Сегодня – как и каждый день – , компания ТехноМир предлагает вам лучшую мировую электронику, заботясь при этом о комфорте, приятных впечатлениях и выгодной цене всех ваших покупок. Именно поэтому мы активно внедряем в Украине инновационный формат мультиканальной продажи, который позволяет Вам в любое время выбирать, сравнивать, покупать, а при необходимости и возвращать любые товары наиболее удобным для вас способом по единым ценам: в магазине или в онлайне. Есть вопросы? Пожалуйста, звоните в нашу информационную службу, а также смело обращайтесь за консультацией к менеджерам в любом нашем магазине.

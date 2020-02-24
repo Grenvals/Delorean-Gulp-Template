@@ -1,0 +1,15 @@
+extends template/main
+
+block variables
+	- var title = '404'
+	- var pageClass = '404-page'
+
+block content
+	.error-page
+		.container 
+			.error-page__wrapper
+				.error-page__img 
+					img(src="static/images/general/404.jpg", alt="error-404").error-page__img-item
+				span.error-page__title.title-page  Запрашиваемая страница не существует
+				.error-page__subtitle.text Вы указали неправильный адрес или перешли по некорректной ссылке. Возможно Вы сделали опечатку при написании адреса, или ссылка ведет на устаревшую страницу.
+				a(href="index.html").button.button-green.error-page__button На главную

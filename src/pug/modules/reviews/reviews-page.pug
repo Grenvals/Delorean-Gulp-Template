@@ -1,0 +1,17 @@
+.reviews 
+	.reviews__header
+		span.title-section Рейтинг
+		include ../rating/rating
+		span.reviews-text-rating средняя оценка 4 бала
+		a(href="#").button.button-green.reviews__button Оставить отзыв 
+	.reviews__body
+		include review
+		include review
+		include review
+		include review
+		include review
+	.pagination__wrapper
+		include ../interface/select-reviews
+		include ../interface/pagination	
+	.reviews__footer 
+		a(href="#").button.button-green.reviews__button Оставить отзыв 

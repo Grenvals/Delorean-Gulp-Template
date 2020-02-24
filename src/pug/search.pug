@@ -1,0 +1,39 @@
+extends template/main
+
+block variables
+	- var title = 'Результати поиска'
+	- var pageClass = 'search-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					span.breadcrumbs__current Результати поиска 
+	section.s-search 
+		.container
+			h1.title-page Результати поиска 
+			.search-result
+				.search-result__header 
+					.search-result__request
+						span.search-result__label По запросу: 
+						form.search__form
+							input(type="search" placeholder='Я хочу купить ...').search__input
+							button(type="submit").search__btn Найти 
+				span.search-result__quantity.search-result__label Найдено 39 товаров
+			.search-result__body
+				.products-prev__wrapper 
+					include modules/products/preview-2
+					include modules/products/preview-no-sale
+					include modules/products/preview-2
+					include modules/products/preview-2
+					include modules/products/preview-2
+					include modules/products/preview-no-sale
+					include modules/products/preview-2
+					include modules/products/preview-2
+					include modules/products/preview-2
+					include modules/products/preview-no-sale
+					include modules/products/preview-2
+				

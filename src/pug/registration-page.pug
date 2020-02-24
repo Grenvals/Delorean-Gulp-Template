@@ -1,0 +1,29 @@
+extends template/main
+
+block variables
+	- var title = 'Регистрация'
+	- var pageClass = 'registration-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					span.breadcrumbs__current Регистрация
+	.antrance 
+		.container 
+			.antrance__header 
+				h1.title-page Регистрация
+			.antrance__wrapper
+				aside.antrance__aside
+					span.title-block.title-block-green Новости
+					include modules/news/news-preview
+					include modules/news/news-preview
+					a(href="#").button.button-green Все новости
+				main.antrance__main
+					span.title-block.title-block-green Форма регистрации 
+					include modules/form/form-registration
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features

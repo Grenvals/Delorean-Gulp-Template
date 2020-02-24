@@ -1,0 +1,18 @@
+.title {
+	display: block;
+	&-page {
+		font-size: 24px;
+		margin-bottom: 50px;
+		font-weight: 600;
+		color: $blue;
+	}
+	&-section {
+		font-size: 20px;
+		margin-bottom: 30px;
+		font-weight: 600;
+		color: $blue;
+	}
+	&-center {
+		text-align: center;
+	}
+}

@@ -1,0 +1,43 @@
+.breadcrumbs {
+	width: 100%;
+	margin-bottom: 10px;
+	@media (max-width: $md3+px) {
+		margin-top: 80px;
+	}
+	&__wrap {
+		overflow: auto;
+		padding: 0px 10px 10px 0px;
+		@include flexbox();
+		justify-content: flex-start;
+		align-items: center;
+		@media (max-width: $md3+px) {
+			display: block;
+		}
+	}
+	&__link {
+		display: inline-block;
+		color: $blue;
+		font-size: 14px;
+		text-align: center;
+		border-radius: 14px;
+		max-width: 200px;
+		white-space: nowrap;
+		@media (max-width: $md3+px) {
+			margin-bottom: 7px;
+		}
+	}
+	&__arrow {
+		display: inline-block;
+		padding: 0px 5px;
+		color: $blue;
+		font-size: 14px;
+	}
+	&__current {
+		display: inline-block;
+		white-space: nowrap;
+		font-size: 14px;
+		@media (max-width: $md3+px) {
+			white-space: normal;
+		}
+	}
+}

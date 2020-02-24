@@ -1,0 +1,27 @@
+.header__main 
+	.container
+		.header__content
+			if(pageClass === "index-page") 
+				.header__logo.logo 
+					img(src="static/images/general/logo.png" alt="Логотип").logo__img
+			else 
+				a(href="index.html").header__logo.logo 
+					img(src="static/images/general/logo.png" alt="Логотип").logo__img
+			.header__phones
+				.header__item.header__item_mobile
+					a(href="tel:380951304034").header__phone +38 (095) 130-40-34
+					span.header__link Заказать звонок
+				.header__item
+					a(href="tel:380951203028").header__phone +38 (095) 120-30-28
+					span.header__description Звонок бесплатный 
+			.header__address.header-address  
+				+icon('location', 'header-address__icon')
+				span.header-address__text Киев, пр-т Правди, 12, сектор 1 
+			.header__shop
+				.header-goods 
+					span.header-goods__price 0 &#8372;
+					span.header-goods__count товаров
+				.header-busket
+					+icon('busket','header-busket__icon')
+					span.header-busket__text Корзина
+					span.header-busket__num 15

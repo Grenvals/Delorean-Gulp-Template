@@ -1,0 +1,60 @@
+.callback {
+	&-form {
+		display: block;
+		padding: 10px 0px;
+		&__item {
+			margin-bottom: 10px;
+		}
+		&__button {
+			-webkit-appearance: none;
+		}
+		&__input {
+			width: 100%;
+			max-width: 100%;
+			padding: 8px 17px;
+			border: none;
+			border-radius: 5px ;
+			margin: 0;
+			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.10);
+			color: $lightdark; 
+			font-size: 16px;
+			resize: none;
+		}
+		&__errors {
+			display: block;
+			padding: 3px 0px;
+			margin-bottom: 2px;
+			font-size: 14px; 
+			min-height: 14px;
+			color: $red;
+		}
+		.buttons-block {
+			margin-top: 15px;
+		}
+	}
+}
+
+.callback-status {
+	display: none;
+	&__wrap {
+		display: block;
+		min-height: 400px;
+		padding: 150px 0px;
+		text-align: center;
+	}
+	&__message {
+		display: block;
+		margin: 0 auto;
+		max-width: 600px;
+		color: $blue; 
+		font-size: 20px;
+		font-weight: 600;
+		margin-bottom: 20px;
+		line-height: 1.5;
+	}
+	&__button {
+		-webkit-appearance: none;
+		display: inline-block;
+		margin: 0 auto; 
+	}
+}

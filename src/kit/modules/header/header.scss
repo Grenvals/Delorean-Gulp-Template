@@ -1,0 +1,232 @@
+//====================================================================================================
+.header {
+	position: relative;
+	z-index: 50;
+	@media (max-width: $md3+px) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: $white;
+		border-bottom: 1px solid rgba($blue, 0.2); 
+	}
+		&__logo {
+			display: inline-block;
+			position: relative;
+			z-index: 6;
+			font-size: 14px;
+		}
+		&-body {
+			height: 118px;
+			margin-bottom: 10px;
+			padding: 25px 0;
+			@include flexbox();
+			justify-content: space-between;
+			align-items: center;
+			@media (max-width: $md3+px) {
+				padding: 0px 10px;
+				height: 60px;
+				margin-bottom: 0px;
+			}
+		}
+}
+ 
+.header-logo {
+	@include flexbox();
+	align-items: center;
+	&__img {
+		display: inline-block;
+		width: 68px;
+		img{max-width: 100%; border-radius: 20%;
+		}
+		@media (max-width: $md3+px) {
+			width: 40px; 
+		}
+	}
+
+	&__wrap {
+		font-size: 14px;
+	}
+
+	&__title {
+		display: block;
+    color: $dark;
+    font-family: 'Myriad Pro';
+    font-weight: 400;
+    font-size: 28px;
+    padding: 0px 16px;
+    font-variant: small-caps;
+		letter-spacing: 0.20px;
+		@media (max-width: $md3+px) {
+			font-size: 22px;
+		}
+	}
+
+	&__subtitle {
+		text-align: center;
+		color: $dark;
+		font-weight: 400;
+		font-size: 14px;
+		@media (max-width: $md3+px) {
+			font-size: 12px;
+		}
+	}
+}
+
+.menu-header {
+		&__icon {
+			display: none;
+			position: relative;
+			width:30px;
+			height: 18px;
+			cursor: pointer;
+			z-index: 5;
+			span{@include anim(0.3s,0s);top: 8px;left: 0px;position: absolute;width: 100%;height: 2px;background-color: $dark;
+				&:first-child{top: 0px;}
+				&:last-child{top: auto;bottom: 0px;}
+			}
+			&.active{
+				span{@include scale(0);
+					&:first-child{@include rotate(-45deg);top: 8px;}
+					&:last-child{@include rotate(45deg);bottom: 8px;}
+				}
+			}
+			@media (max-width: $md3+px) {
+				display: block;
+			}
+		}
+
+		&__menu {
+			@media (max-width: $md3+px) {
+				display: block; 
+				position: fixed;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: -110%;
+				background-color: $grey;
+				z-index: 2;
+				padding: 150px 0px 0px 0px;
+				border-right: 1px solid rgba($blue, 0.2); 
+				overflow: auto;
+				@include anim(0.4s,0s);
+				&.active { 
+					left: 0;
+				}
+			}
+		}
+
+		&__list {
+			@include flexbox();
+			align-items: center;
+			li {
+				margin: 0 0 0 35px;
+				@media (max-width: $md3+px) {
+					margin: 0px 20px 10px 20px;
+					&:last-child {
+						margin: 50px 0px 10px 20px;
+					}
+				}
+			}
+			@media (max-width: $md3+px) {
+				display: block; 
+			}
+		}
+
+		&__link {
+			display: block;
+			padding: 5px 0;
+			font-size: 14px;
+			font-weight: 600;
+			color: $blue;
+			text-transform: uppercase;
+			transition: color 0.1s;
+			position: relative;
+			@media (max-width: $md3+px) {
+				font-size: 16px;
+			}
+			&:hover {
+				color: lighten($blue, 10%);
+				&:after {
+					left: 0;
+					width: 100%;
+					@media (max-width: $md3+px) {
+						left: 50%;
+						width: 0;
+					}
+				}
+			}
+			&:active {
+				color: lighten($blue, 5%);
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				left: 50%;
+				width: 0;
+				height: 1px;
+				border-radius: 2px;
+				background-color: $blue;
+				bottom: 0;
+				@include anim(0.3s,0s) 
+			}
+			&--unactive {
+					&:after {
+						left: 0;
+						width: 0%;
+					 
+					}
+					&:hover {
+						color: $blue;
+						&:after {
+							left: 0;
+							width: 0%;
+						 
+						}
+					}
+				}	
+		}
+}
+.header-language {
+	&__default {
+		font-size: 14px;
+		font-weight: 600;
+		background: $blue;
+		color: $white;
+		padding: 5px 10px;
+		display: inline-block;
+		text-align: center;
+		border-radius: 5px;
+		margin-right: 7px;
+		min-width: 58px;
+	}
+	&__link {
+		font-size: 14px;
+		padding: 2px 0px;
+		font-weight: 600;
+		color: $blue;
+		text-transform: uppercase;
+		transition: color 0.1s;
+		position: relative;
+		&:hover {
+			color: lighten($blue, 10%);
+			&:after {
+				left: 0;
+				width: 100%;
+			}
+		}
+		&:active {
+			color: lighten($blue, 5%);
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			width: 0; 
+			height: 1px; 
+			background-color: $blue;
+			bottom: 0;
+			@include anim(0.3s,0s) 
+		}
+	}
+}

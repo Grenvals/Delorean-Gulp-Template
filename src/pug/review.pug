@@ -1,0 +1,47 @@
+extends template/main
+
+block variables
+	- var title = 'Оставить отзыв'
+	- var pageClass = 'review-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Каталог
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Ноутбуки
+				li.breadcrumbs__item
+					a(href="product.html").breadcrumbs__link Ноутбук игровой Acer Nitro 5
+				li.breadcrumbs__item
+					a(href="product.html").breadcrumbs__link Отзывы
+				li.breadcrumbs__item
+					span.breadcrumbs__current Оставить отзыв
+					
+	.review-form 
+		.container 
+			.review-form__header 
+				h1.title-page Отзывы
+			.review-form__wrapper
+				aside.review-form__aside
+					span.title-block.title-block-green Новости
+					include modules/news/news-preview
+					include modules/news/news-preview
+					a(href="#").button.button-green Все новости
+				main.review-form__main
+					span.title-block.title-block-green Оставить отзыв о товаре
+					include modules/form/form-review
+					span.title-block Последние добавленые отзывы 
+					.reviews__body
+						include modules/reviews/review
+						include modules/reviews/review
+						include modules/reviews/review
+					.pagination__wrapper
+						include modules/interface/select-reviews
+						include modules/interface/pagination	
+
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features

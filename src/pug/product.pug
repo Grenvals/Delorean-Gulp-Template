@@ -1,0 +1,88 @@
+extends template/main
+
+block variables
+	- var title = 'Ноутбук игровой Acer Nitro 5'
+	- var pageClass = 'product-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Каталог
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Ноутбуки
+				li.breadcrumbs__item
+					span.breadcrumbs__current Ноутбук игровой Acer Nitro 5
+	.s-product 
+		.container
+			.product 
+				.product__header
+					.product-slider
+						.js-small-product-slider__wraper
+							.js-small-product-slider.owl-carousel
+								.js-small-product-slider__wrap.item 
+									img(src="static/images/content/products/acer/acer-front.jpg", alt="Изображения товара").js-small-product-slider__img 
+								.js-small-product-slider__wrap.item 
+									img(src="static/images/content/products/acer/acer-back.jpg", alt="Изображения товара").js-small-product-slider__img
+								.js-small-product-slider__wrap.item 
+									img(src="static/images/content/products/acer/acer-3.jpg", alt="Изображения товара").js-small-product-slider__img 
+								.js-small-product-slider__wrap.item 
+									img(src="static/images/content/products/acer/acer-4.jpg", alt="Изображения товара").js-small-product-slider__img 
+								.js-small-product-slider__wrap.item 
+									img(src="static/images/content/products/acer/acer-5.jpg", alt="Изображения товара").js-small-product-slider__img 
+						.js-big-product-slider.owl-carousel
+							.js-big-product-slider__wrap.item 
+								img(src="static/images/content/products/acer/acer-front.jpg", alt="Изображения товара").js-big-product-slider__img
+							.js-big-product-slider__wrap.item 
+								img(src="static/images/content/products/acer/acer-back.jpg", alt="Изображения товара").js-big-product-slider__img
+							.js-big-product-slider__wrap.item 
+								img(src="static/images/content/products/acer/acer-3.jpg", alt="Изображения товара").js-big-product-slider__img
+							.js-big-product-slider__wrap.item 
+								img(src="static/images/content/products/acer/acer-4.jpg", alt="Изображения товара").js-big-product-slider__img
+							.js-big-product-slider__wrap.item 
+								img(src="static/images/content/products/acer/acer-5.jpg", alt="Изображения товара").js-big-product-slider__img
+					.product-info
+						.product-info__header 
+							h1.title-product Ноутбук игровой Acer Nitro 5 AN515-52-50Z0 (NH.Q3MEU.004)
+						.product-info__row 
+							.product-info__code 
+								span.product__text Код: 38256
+							include modules/rating/rating
+							a(href="#").product-info__reviews 77 отзывов  
+						.product-info__row 
+							.product-info__stock Наличие: 
+								span есть в наличии
+						.product-info__row
+							.product-price 
+								span.product-price__old 25 299грн.
+								span.product-price__current 19 999грн. 
+							a(href="#").product-info__low-price Нашли дешевле?
+						.product-info__row.product-info__buttons 
+							a(href="").button.product-button Купить
+							a(href="").button.button-green.product-button В кредит 
+						.product-info__footer 
+							include modules/features/features-pay
+				.product__body 
+					.tabs-green.tabs 
+						ul.tabs-green-navigation.product-tabs-navigation
+							li(data-show-tab="tab-general").tabs-green-navigation__item.tabs-navigation__item.tabs-navigation__item_active Описание 
+							li(data-show-tab="tab-char").tabs-green-navigation__item.tabs-navigation__item Характеристики
+							li(data-show-tab="tab-feedback").tabs-green-navigation__item.tabs-navigation__item Отзывы	
+							li(data-show-tab="tab-same").tabs-green-navigation__item.tabs-navigation__item Похожые товари	
+						.tabs-body 
+							.tab.tab-general.tab_active
+								include modules/review/review
+							.tab.tab-char
+								include modules/tables/char
+							.tab.tab-feedback
+								include modules/reviews/reviews
+							.tab.tab-same
+								include pages/index/special-product
+		.product__special-product
+			include pages/index/special-product
+		.container 
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features

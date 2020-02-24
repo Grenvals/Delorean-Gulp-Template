@@ -1,0 +1,40 @@
+extends template/main
+
+block variables
+	- var title = 'Оформление заказа'
+	- var pageClass = 'checkout-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Корзина
+				li.breadcrumbs__item
+					span.breadcrumbs__current Оформление заказа
+					
+	.busket-checkout 
+		.container 
+			.busket-checkout__header 
+				h1.title-page Оформление заказа
+			.busket-checkout__wrapper
+				aside.busket-checkout__aside
+					span.title-block.title-block-green Новости
+					include modules/news/news-preview
+					include modules/news/news-preview
+					a(href="#").button.button-green Все новости
+				main.busket-checkout__main
+					span.title-block.title-block-green Шаг 1. Информация для доставки
+					include modules/form/form-checkout
+					span.title-block.title-block-green Шаг 2. Оплата заказа
+					include modules/products/product-checkout
+					include modules/products/product-checkout
+					.busket-order
+						.busket-order__sum
+							span.busket-order__label К оплате:
+							span.busket-order__count 79 996грн.
+						a.button.button-yellow Оплатить
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features

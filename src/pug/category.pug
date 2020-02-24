@@ -1,0 +1,49 @@
+extends template/main
+
+block variables
+	- var title = 'Ноутбуки'
+	- var pageClass = 'category-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					span.breadcrumbs__current Ноутбуки
+	.s-category 
+		.container 
+			.category 
+			.category__header
+				h1.title-page Ноутбуки
+				a.filters-button фильтры
+				include modules/interface/select-sort
+			.category__body 
+				aside.category-filter 
+					.category-filter__block
+						include modules/filters/filters	
+					.category-filter__block 
+						span.category-filter__title
+				main.category-main
+					.s-category-main
+						.pagination__wrapper
+							.pagination__count 
+								include modules/interface/select
+							include modules/interface/pagination	
+						.products-prev__wrapper.products-prev__wrapper_small.products-prev__wrapper_category  
+							include modules/products/preview-2
+							include modules/products/preview-no-sale
+							include modules/products/preview-2
+							include modules/products/preview-2
+							include modules/products/preview-2
+							include modules/products/preview-no-sale
+							include modules/products/preview-2
+							include modules/products/preview-2
+							include modules/products/preview-2
+						.pagination__wrapper
+							.pagination__count 
+								include modules/interface/select
+							include modules/interface/pagination		
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features

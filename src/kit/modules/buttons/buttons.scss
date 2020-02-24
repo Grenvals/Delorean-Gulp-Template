@@ -1,0 +1,62 @@
+.button {
+	color: $blue;
+	font-weight: 600;
+	font-size: 16px;
+	text-decoration: underline;
+	text-align: right;
+	border-radius: 14px;
+	max-width: 200px;
+	&-right {
+		margin-left: auto;
+	}
+	&-underline {
+		position: relative;
+		text-decoration: none;
+		&:hover {
+			color: lighten($blue, 10%);
+			&:after {
+				left: 50%;
+				width: 0;
+				@media (max-width: $md3+px) {
+					left: 50%;
+					width: 0;
+				}
+			}
+		}
+		&:active {
+			color: lighten($blue, 5%);
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			border-radius: 2px;
+			background-color: $blue;
+			bottom: 0;
+			@include anim(0.3s,0s) 
+		}
+	}
+	&-blue {
+		background: $blue;
+		color: $white;
+		height: 35px;
+		line-height: 35px;
+		text-decoration: none;
+		padding: 0px 20px;
+		font-weight: 600;
+		text-transform: uppercase;
+		font-size: 14px;
+		&:hover {
+			background: darken($blue, 10%);
+		}
+		&:active {
+			background: darken($blue, 5%);
+		}
+	}
+}
+.buttons-block {
+	margin-top: 20px;
+	text-align: right;
+}

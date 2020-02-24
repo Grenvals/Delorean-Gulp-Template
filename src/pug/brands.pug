@@ -1,0 +1,29 @@
+extends template/main
+
+block variables
+	- var title = 'Бренды'
+	- var pageClass = 'brends-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					span.breadcrumbs__current Бренды 
+	.brands 
+		.container 
+			h2.brands-title.title-page Бренды 
+			.brands__wrap
+				ul.brands__list 
+					each brand in [{images:'samsung-logo', name:'Samsung'},{images:'logo-huawei',name:'Huawei'},{images:'lg-logo',name:'LG Electronics'},{images:'intel-logo',name:'Intel'},{images:'indesit-logo',name:'Indesit'},{images:'acer-logo',name:'Acer'}, {images:'samsung-logo', name:'Samsung'},{images:'logo-huawei',name:'Huawei'},{images:'lg-logo',name:'LG Electronics'},{images:'intel-logo',name:'Intel'},{images:'indesit-logo',name:'Indesit'},{images:'acer-logo',name:'Acer'}, {images:'samsung-logo', name:'Samsung'},{images:'logo-huawei',name:'Huawei'},{images:'lg-logo',name:'LG Electronics'},{images:'intel-logo',name:'Intel'},{images:'indesit-logo',name:'Indesit'},{images:'acer-logo',name:'Acer'}, {images:'samsung-logo', name:'Samsung'},{images:'logo-huawei',name:'Huawei'},{images:'lg-logo',name:'LG Electronics'},{images:'intel-logo',name:'Intel'},{images:'indesit-logo',name:'Indesit'},{images:'acer-logo',name:'Acer'},{images:'acer-logo',name:'Acer'},{images:'intel-logo',name:'Intel'},{images:'lg-logo',name:'LG Electronics'},{images:'samsung-logo', name:'Samsung'},{images:'indesit-logo',name:'Indesit'}]
+						li.brands__item 
+							a(href="").brand
+								.brand__img-wrap
+									img(src=`static/images/content/brands/${brand.images}.png` alt=`${brand.images}`).brand__img 
+								span.brand__name=brand.name 
+				.content-block 
+					span.title-block.title-block-green Мировые бренды и их товары
+					p.brands__text.text Сегодня – как и каждый день, компания ТехноМир предлагает вам лучшую мировую электронику, заботясь при этом о комфорте, приятных впечатлениях и выгодной цене всех ваших покупок. Именно поэтому мы активно внедряем в Украине инновационный формат мультиканальной продажи, который позволяет Вам в любое время выбирать, сравнивать, покупать, а при необходимости и возвращать любые товары наиболее удобным для вас способом по единым ценам: в магазине или в онлайне. Есть вопросы? Пожалуйста, звоните в нашу информационную службу, а также смело обращайтесь за консультацией к менеджерам в любом нашем магазине.
+					p.brands__text.text Сегодня – как и каждый день, компания ТехноМир предлагает вам лучшую мировую электронику, заботясь при этом о комфорте, приятных впечатлениях и выгодной цене всех ваших покупок. Именно поэтому мы активно внедряем в Украине инновационный формат мультиканальной продажи, который позволяет Вам в любое время выбирать, сравнивать, покупать, а при необходимости и возвращать любые товары наиболее удобным для вас способом по единым ценам: в магазине или в онлайне. Есть вопросы? Пожалуйста, звоните в нашу информационную службу, а также смело обращайтесь за консультацией к менеджерам в любом нашем магазине.

@@ -1,0 +1,22 @@
+extends template/main
+
+block variables
+	- var title = 'Сравнение товаров'
+	- var pageClass = 'compare-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Ноутбуки
+				li.breadcrumbs__item
+					span.breadcrumbs__current Сравнение товаров
+	.compare 
+		.container 
+			h1.title-page Сравнение товаров
+			include modules/tables/compare-table
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features

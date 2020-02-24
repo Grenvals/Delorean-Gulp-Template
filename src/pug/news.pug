@@ -1,0 +1,30 @@
+extends template/main
+
+block variables
+	- var title = 'Новости'
+	- var pageClass = 'news-page'
+
+block content
+	.breadcrumbs
+		.container
+			ul.breadcrumbs__list
+				li.breadcrumbs__item
+					a(href="index.html").breadcrumbs__link Главная
+				li.breadcrumbs__item
+					span.breadcrumbs__current Новости
+	.news 
+		.container 
+			.news__header 
+				h1.title-page Новости
+				span.news__date 11.10.2019
+			.news-wrapper
+				aside.news-aside
+					span.title-block.title-block-green.news__title-aside Другие новости
+					include modules/news/news-preview
+					include modules/news/news-preview
+					a(href="").button.button-green Все новости
+				main.news-main
+					span.title-block.title-block-green.news__title Другие новости
+					include modules/news/news-article
+			span.title-small Причины выбрать именно нас 
+			include modules/features/features
