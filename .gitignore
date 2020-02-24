@@ -1,4 +1,4 @@
- # Created by https://www.gitignore.io/api/windows
+# Created by https://www.gitignore.io/api/windows
 # Edit at https://www.gitignore.io/?templates=windows
 
 ### Windows ###
@@ -27,3 +27,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/windows
+
+# dependencies
+/node_modules
