@@ -1,12 +1,12 @@
 const gulp = require('gulp'); // Инициализируем gulp 
 
 let plumber = require('gulp-plumber'), // Отслеживание ошибок без остановки
-// img ---------------------------------------------------------------------
+// IMG ---------------------------------------------------------------------
     tinypng = require('gulp-tinypng-compress'), // сжатие изображений
-// js ---------------------------------------------------------------------
+// JS ---------------------------------------------------------------------
     concat  = require('gulp-concat'), // обэдинение файлов
     uglify = require('gulp-uglify'), // минификация скриптов
-// Sass ---------------------------------------------------------------------
+// SASS ---------------------------------------------------------------------
     sourcemaps = require('gulp-sourcemaps'),
     sass       = require('gulp-sass'),
 		autoprefixer = require('gulp-autoprefixer'),
@@ -18,6 +18,8 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
 		cached = require('gulp-cached'),
 		gulpif = require('gulp-if'),
 		filter = require('gulp-filter'),
+// KIT ---------------------------------------------------------------------
+    kit = require('gulp-kit'),
 // SVG ---------------------------------------------------------------------
     svgSprite = require('gulp-svg-sprite'), // собирает все файлы в спрайт sprite.svg#shopping-cart
     svgmin = require('gulp-svgmin'), // минификация svg 
@@ -33,8 +35,7 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
         "output": "./build/static/images/svg/"
 		};
 
-
-// Изображения 
+// Img ------------------------------------------------------------------
   gulp.task('imgDev', () => {
 		return gulp.src(['./src/img/**/*', '!./src/img/svg/**/*' ])
     .pipe(gulp.dest('build/img/'));
@@ -55,7 +56,7 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
     .pipe(gulp.dest('build/fonts/'));
 	});
 
-// Скрипты 
+// Scripts ------------------------------------------------------------------
 	gulp.task('libsDev', () => {
 		return gulp.src([
 			'./src/js/libs/**/*', 
@@ -79,18 +80,18 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
 	});
 
 	gulp.task('scriptsDev', () => {
-		return gulp.src(['./src/js/scripts.js'])
+		return gulp.src(['./src/js/*.js'])
     .pipe(gulp.dest('build/js'));
 	});
 
 	gulp.task('scriptsBuild', () => {
-		return gulp.src(['./src/js/scripts.js'])
+		return gulp.src(['./src/js/*.js'])
 		.pipe(uglify())
     .pipe(gulp.dest('build/js'));
 	});
 
-	// Styles 
-	gulp.task('stylesDev', () => {
+	// Styles ------------------------------------------------------------------
+	gulp.task('sassDev', () => {
 		return gulp.src(['./src/sass/style.scss'])
 				.pipe(sourcemaps.init())
 				.pipe(sass())
@@ -111,7 +112,7 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
 				.pipe(gulp.dest('build/css/'));
 	});
  
-  // PUG 
+  // PUG ------------------------------------------------------------------
 	gulp.task('pug', () => {
 			return gulp.src('./src/pug/*.pug')
 					.pipe(plumber())
@@ -128,11 +129,7 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
 					.pipe(gulp.dest('./build/'))
 	});
 
-	gulp.task('watch', () => {
-		gulp.watch('./src/pug/**/*.pug', gulp.series('pug'));
-});
-
-// SVG
+// SVG ------------------------------------------------------------------
 gulp.task('svg', () => {
 	return gulp.src('./src/img/svg/*.svg')
 			.pipe(svgmin({
@@ -156,5 +153,28 @@ gulp.task('svg', () => {
 							}
 					}
 			}))
-			.pipe(gulp.dest('./build/img/svg/'));
+			.pipe(gulp.dest('./build/img/svg'));
+});
+
+gulp.task('kit', () => {
+	return gulp.src('src/kit/*.kit')
+	.pipe(kit())
+	.pipe(gulp.dest('build/'));
+});
+
+// Watcher 
+// $.gulp.task('watcher', function () {
+// 	$.gulp.watch('./dev/static/images/svg/*.svg', $.gulp.series('svg'));
+// 	$.gulp.watch('./dev/static/js/**/*.js', $.gulp.series('js:dev'));
+// });
+
+
+gulp.task('watch', () => {
+	gulp.watch('./src/pug/**/*.pug', gulp.parallel('pug')); //PUG
+	gulp.watch('./src/sass/**/*.scss', gulp.parallel('sassDev'));  //SASS
+	gulp.watch('./src/img/**/*.{png,jpg,gif}', gulp.parallel('imgBuild')); //IMG
+	gulp.watch('./src/img/svg/*.svg', gulp.parallel('svg'));
+	gulp.watch('./src/js/*.js', gulp.parallel('scriptsDev'));
+	gulp.watch('./src/js/libs*.js', gulp.parallel('scriptsDev'));
+
 });

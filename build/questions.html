@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-	<title>ContraCam: Техподдержка</title>
+	<title>ContraCam: Ответы на вопросы</title>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +46,7 @@
 	<div class="container">
 		<div class="header-body">
 			<div class="header__column">
-				<div class="header__logo header-logo">
+				<a href="index.html" class="header__logo header-logo">
 					<div class="header-logo__img">
 						<img src="img/logo.svg" alt="Logo">
 					</div>
@@ -54,17 +54,17 @@
 						<div class="header-logo__title">ContraCam</div>
 						<div class="header-logo__subtitle">support</div>
 					</div>
-				</div>
+				</a>
 			</div>
 			<div class="header__column menu-header">
 				<a href="#" class="menu-header__icon">
 					<span></span>
 					<span></span>
 					<span></span>
-				</a>
+				</a> 
 				<nav class="menu-header__menu">
 					<ul class="menu-header__list">
-						<li><span class="menu-header__link menu-header__link--unactive">Главная</span></li>
+						<li><a href="index.html" class="menu-header__link">Главная</a></li>
 						<li><a href="../index.html" class="menu-header__link">Основной сайт</a></li>
 						<li>
 							<div class="header-language">
@@ -72,35 +72,32 @@
 									<a href="#" class="header-language__link">ENG</a>
 							</div>
 						</li>
+
 					</ul>
 				</nav>
 			</div>
 		</div>
 	</div>
 </header>
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="breadcrumbs__wrap">
+					<a href="index.html" class="breadcrumbs__link button-underline">Главная</a>
+					<span class="breadcrumbs__arrow">/</span>
+					<span class="breadcrumbs__current">Ответы на вопросы</span>
+				</div>
+			</div>
+		</div>
 		<div class="category-main">
 			<div class="container">
 				<div class="category-main__wrapper">
-					<h1 class="title title-page title-center">Техподдержка</h1>
 					<div class="category-block">
-						<a href="instructions.html" class="category-block__item">
-							<div class="category-block__img">
-								<img src="img/icons/checklist.svg" alt="Инструкции и мануалы">
-							</div>
-							<div class="category-block__title">Инструкции и мануалы</div>
-						</a>
-						<a href="questions.html" class="category-block__item">
+						<div class="category-block__item category-block__item--notlink scroll">
 							<div class="category-block__img">
 								<img src="img/icons/speech.svg" alt="Ответы на вопросы">
 							</div>
-							<div class="category-block__title">Ответы на вопросы</div>
-						</a>
-						<a href="#feedback" class="category-block__item scroll form-scroll">
-							<div class="category-block__img">
-								<img src="img/icons/feedback.svg" alt="Обратная связь">
-							</div>
-							<div class="category-block__title">Обратная связь</div>
-						</a>
+							<h1 class="category-block__title">Ответы на вопросы</h1>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -108,35 +105,33 @@
 		<!-- /.category-block -->
 		<div class="info-block">
 			<div class="container">
-				<div id="instruction" class="instruction-block">
-					<span class="title title-section title-center">Инструкции и решение проблем</span>
+				<div class="questions-block">
+					<span class="title title-section title-center">Ответы на часто задаваемые вопросы</span>
 					<div class="accordion">
 						<div class="accordion__item">
-							<div class="title__block">Настройка работы в фоне для Huawei, Xiaomi, Meizu, Honor</div>
+							<div class="title__block">Можно ли самому добавлять камеры, ограничения и другие данные на карту?</div>
 							<div class="info">
-								<p class="info__item">На некоторых прошивках Huawei/Honor/Xiaomi/Meizu установлен режим энергосбережение, который препятствует
-									нормальной работе в фоне. Если вы владелец одного из устройств то выполните эту инструкцию.</p>
-								<div class="info__item"><a class="info__link" href="xiaomi-support.html">Инструкция для Xiaomi</a><a
-									class="info__link" href="meizu-support.html">Инструкция для Meizu</a><a
-										class="info__link" href="huawei-support.html">Инструкция для Huawei/Honor</a></div>
+								<p class="info__item">Мы берет все данные кроме камер из <a class="info__link info__link-intext" href="http://mybedy.com/support/openstreetmap.org">Открытой карты мира - OpenStreetMap</a>, это пользовательские карты, их делают все желающие, тысячи энтузиастов в мире. Вы можете зарегистрироваться и вносить туда любые изменения по ограничениям.</p>
+								<p class="info__item">Камеры пока нельзя добавлять из приложения, мы работаем над этим. Но уже сейчас вы можете сделать фото недостающей камеры и прислать нам на почту support@contracam.com
+								</p>
 							</div>
 						</div>
 						<!-- /accordion__item -->
-					</div>
-					<div class="buttons-block"><a href="instructions.html" class="button button-right button-underline">Все
-							инструкции</a></div>
-				</div>
-				<!-- /.instruction-block -->
-				<div id="questions" class="questions-block">
-					<span class="title title-section title-center">Ответы на часто задаваемые вопросы</span>
-					<div class="accordion">
+						<div class="accordion__item">
+							<div class="title__block">Есть ли в приложении реклама?</div>
+							<div class="info">
+								<p class="info__item">Рекламы в приложении нет и не будет, мы стараемся сделать как можно удобнее и
+									доступнее его.</p>
+							</div>
+						</div>
+						<!-- /accordion__item  -->
 						<div class="accordion__item">
 							<div class="title__block">Нет русского языка или вообще нет озвучивания голосом</div>
 							<div class="info">
 								<p class="info__item">В основных настройках приложения, в самом верху, есть пошаговая инструкция, которая поможет вам настроить синтезатор речи. Обязательно пройдите все пункты инструкции. После 4-ого пунтка вы можете проверить работоспособность синтезатора - у него есть собственный тест голоса.</p>
 							</div>
 						</div>
-						<!-- /accordion__item -->
+						<!-- /accordion__item  -->
 						<div class="accordion__item">
 							<div class="title__block">Тихий голос озвучивания</div>
 							<div class="info">
@@ -168,6 +163,96 @@
 						</div>
 						<!-- /accordion__item -->
 						<div class="accordion__item">
+								<div class="title__block">Плохо работает GPS, опаздывает или совсем не там показывает</div>
+								<div class="info">
+									<p class="info__item info__title">Вот пункты, которые могут решить пробему:</p>
+									<ul class="info__number-list">
+										<li class="info__list-item">Убедитесь, что у вас включен сервис геолокации. Включите его по всем источникам: в настройках устройства -> конфиденциальность -> геоданные -> метод обнаружения GPS, Wi-Fi и мобильные сети.</li>
+										<li class="info__list-item">Убедитесь, что приложение имеет доступ геопозиции в настройках устройства. Если при установке приложение запрашивало разрешение на это, то нужно было разрешить. Если запретили, удалите приложение, установите заново и разрешите.</li>
+										<li class="info__list-item">GPS имеет слабый прием в зданиях или вообще не имеет приема. Это приложение надо использовать на улице, так как оно автомобильное.</li>
+										<li class="info__list-item">Зайдите в настройки приложения, в основные настройки, и выключите(или включите) “Использовать Google Play Services как сервис геолокации”</li>
+										<li class="info__list-item">Если проблема не решилась, значит приложение не получает GPS из-за низкого приоритета. Пройдитесь по инструкциям фоновой работы для китайских телефонов. Смотрите выше на этой странице.</li>
+									</ul>
+								</div>
+							</div>
+							<!-- /accordion__item -->
+							<div class="accordion__item">
+								<div class="title__block">Не восстанавливается ранее приобретенный Premium</div>
+								<div class="info">
+									<p class="info__item">Premium не восстановится, если покупка была сделана под другим Google ID, а сейчас вы восстанавливаете под другим. Если вы уверены, что Google ID одинаковый - удалите приложение, перезапустите устройство и установите приложение опять. Попробуйте восстановить. Обращаем ваше внимание функционал восстановления покупок - это удел только Google и только он делает все проверки. При соответствии Google ID покупка восстанавливается всегда!</p>
+								</div>
+							</div>
+							<!-- /accordion__item -->
+					</div>
+				</div>
+				<!-- /.questions-block -->
+				<div class="instruction-block">
+					<span class="title title-section title-center">Вопросы по функционалу</span>
+					<div class="accordion">
+						<div class="accordion__item">
+							<div class="title__block">Как настроить, чтобы выдавалось предупреждение при превышении заданного порога
+								скорости?</div>
+							<div class="info">
+								<p class="info__item">В настройках для каждого профиля установите "молчать, если превышение ниже" - и
+									выберите превышение. Отключите звук перед камерой и будет молчать, если нет никаких превышений. Также
+									можете выбрать биппер-гейгер на более серьезное превышение.</p>
+							</div>
+						</div>
+						<!-- /accordion__item  -->
+						<div class="accordion__item">
+							<div class="title__block">Камера на перекрестке отображается только тогда когда поворачиваем на эту улицу.
+							</div>
+							<div class="info">
+								<p class="info__item">Камеры показываются только по вашему направлению, поэтому вы ее не видите, когда
+									еще не повернули, но алгоритм учитывает гораздо больше условий и он предупредит заранее. По
+									ограничениям - их добавляют сами люди, пользователи приложения в OSM. Вы тоже можете это делать.</p>
+							</div>
+						</div>
+						<!-- /accordion__item  -->
+						<div class="accordion__item">
+							<div class="title__block">Есть задержка по отображению и обновлению спидометра.</div>
+							<div class="info">
+								<p class="info__item">GPS датчик в разных телефонах может задерживает данные на 1-2 секунды.</p>
+							</div>
+						</div>
+						<!-- /accordion__item  -->
+						<div class="accordion__item">
+							<div class="title__block">Как переключится на темную тему, ночной режим?</div>
+							<div class="info">
+								<p class="info__item">Вы можете в настройках навигации, выбрать режим "ночь" и будет черная тема.</p>
+							</div>
+						</div>
+						<!-- /accordion__item  -->
+						<div class="accordion__item">
+							<div class="title__block">Как можно отметить места где был?</div>
+							<div class="info">
+								<p class="info__item">Зажмите карту на 3 секунды и появится возможность поставить метку.</p>
+							</div>
+						</div>
+						<!-- /accordion__item  -->
+					</div>
+				</div>
+				<div class="instruction-block">
+					<span class="title title-section title-center">Расширеная версия и бета тестирование</span>
+					<div class="accordion">
+						<div class="accordion__item">
+							<div class="title__block">На какой срок действует премиум версия приложения после покупки?</div>
+							<div class="info">
+								<p class="info__item">Платная версия приложения оплачивается один раз, нет никаких подписок и прочего.
+									Вы получаете премиум навсегда. Также платная версия дает правильную работу с камерами в спину,
+									предупреждает о контроле полос, более часто обновляет камеры и другие опасности.</p>
+							</div>
+						</div>
+						<!-- /accordion__item  -->
+						<div class="accordion__item">
+							<div class="title__block">Как подключится к программе бета-тестирования?</div>
+							<div class="info">
+								<p class="info__item">Зайдите на станицу приложения в Google Play и там внизу будет раздел
+									бета-тестирования. Подписываетесь и через несколько минут будет доступна новая версия приложения.</p>
+							</div>
+						</div>
+						<!-- /accordion__item  -->
+						<div class="accordion__item">
 							<div class="title__block">Не могу оплатить, не принимает способ оплаты</div>
 							<div class="info">
 								<p class="info__item">Программисты не снимают деньги с пользователей. Это делает только Google или Apple(если у вас iPhone/iPad), а программистам переводит заработок удерживая свой процент.</p>
@@ -178,41 +263,9 @@
 							</div>
 						</div>
 						<!-- /accordion__item -->
-						<div class="accordion__item">
-							<div class="title__block">Можно ли самому добавлять камеры, ограничения и другие данные на карту?</div>
-							<div class="info">
-								<p class="info__item">Мы берет все данные кроме камер из <a class="info__link info__link-intext" href="http://mybedy.com/support/openstreetmap.org">Открытой карты мира - OpenStreetMap</a>, это пользовательские карты, их делают все желающие, тысячи энтузиастов в мире. Вы можете зарегистрироваться и вносить туда любые изменения по ограничениям.</p>
-								<p class="info__item">Камеры пока нельзя добавлять из приложения, мы работаем над этим. Но уже сейчас вы можете сделать фото недостающей камеры и прислать нам на почту support@contracam.com
-								</p>
-							</div>
-						</div>
-						<!-- /accordion__item -->
-						<div class="accordion__item">
-							<div class="title__block">Плохо работает GPS, опаздывает или совсем не там показывает</div>
-							<div class="info">
-								<p class="info__item info__title">Вот пункты, которые могут решить пробему:</p>
-								<ul class="info__number-list">
-									<li class="info__list-item">Убедитесь, что у вас включен сервис геолокации. Включите его по всем источникам: в настройках устройства -> конфиденциальность -> геоданные -> метод обнаружения GPS, Wi-Fi и мобильные сети.</li>
-									<li class="info__list-item">Убедитесь, что приложение имеет доступ геопозиции в настройках устройства. Если при установке приложение запрашивало разрешение на это, то нужно было разрешить. Если запретили, удалите приложение, установите заново и разрешите.</li>
-									<li class="info__list-item">GPS имеет слабый прием в зданиях или вообще не имеет приема. Это приложение надо использовать на улице, так как оно автомобильное.</li>
-									<li class="info__list-item">Зайдите в настройки приложения, в основные настройки, и выключите(или включите) “Использовать Google Play Services как сервис геолокации”</li>
-									<li class="info__list-item">Если проблема не решилась, значит приложение не получает GPS из-за низкого приоритета. Пройдитесь по инструкциям фоновой работы для китайских телефонов. Смотрите выше на этой странице.</li>
-								</ul>
-							</div>
-						</div>
-							<!-- /accordion__item -->
-							<div class="accordion__item">
-								<div class="title__block">Не восстанавливается ранее приобретенный Premium</div>
-								<div class="info">
-									<p class="info__item">Premium не восстановится, если покупка была сделана под другим Google ID, а сейчас вы восстанавливаете под другим. Если вы уверены, что Google ID одинаковый - удалите приложение, перезапустите устройство и установите приложение опять. Попробуйте восстановить. Обращаем ваше внимание функционал восстановления покупок - это удел только Google и только он делает все проверки. При соответствии Google ID покупка восстанавливается всегда!</p>
-								</div>
-							</div>
-							<!-- /accordion__item -->
 					</div>
-					<div class="buttons-block"><a href="questions.html" class="button button-right button-underline">Все
-							ответы</a></div>
 				</div>
-				<!-- /.questions-block -->
+				<!-- /.instruction-block -->
 				<div id="feedback" class="feedback-block">
 					<span class="title title-section title-center">Напишите нам если возникла проблема</span>
 					<div class="accordion">
@@ -279,7 +332,7 @@
 		<div class="footer-body">
 			<div class="footer-top">
 				<div class="footer-top__item footer-logo">
-					<div class="header__logo header-logo">
+					<a href="index.html" class="header__logo header-logo">
 						<div class="header-logo__img">
 							<img src="img/logo.svg" alt="Logo">
 						</div>
@@ -287,7 +340,7 @@
 							<div class="header-logo__title">ContraCam</div>
 							<div class="header-logo__subtitle">support</div>
 						</div>
-					</div>
+					</a>
 				</div>
 				<div class="footer-top__item">
 					<div class="app-links">
@@ -320,6 +373,7 @@
 	</div>
 </footer>
 	</div>
+	<!-- wrapper -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script> -->
 <script src="js/vendors.js"></script>
@@ -327,4 +381,5 @@
 <script src="js/custom.js" ></script>
 
 </body>
+
 </html>
