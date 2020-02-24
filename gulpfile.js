@@ -1,12 +1,14 @@
 const gulp = require('gulp'); // Инициализируем gulp 
 
-let plumber = require('gulp-plumber'), // Отслеживание ошибок без остановки
+let browserSync   = require('browser-sync'),
+		plumber = require('gulp-plumber'), // Отслеживание ошибок без остановки
+		del = require('del'),
 // IMG ---------------------------------------------------------------------
     tinypng = require('gulp-tinypng-compress'), // сжатие изображений
 // JS ---------------------------------------------------------------------
+    rigger = require('gulp-rigger'), // обэдинение в определенной последовательности:  //= folder/file.js
     concat  = require('gulp-concat'), // обэдинение файлов
 		uglify = require('gulp-uglify'), // минификация скриптов
-		rigger = require('gulp-rigger'), // обэдинение в определенной последовательности:  //= folder/file.js
 // SASS ---------------------------------------------------------------------
     sourcemaps = require('gulp-sourcemaps'),
     sass       = require('gulp-sass'),
@@ -26,55 +28,74 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
     svgmin = require('gulp-svgmin'), // минификация svg 
     cheerio = require('gulp-cheerio'), // удаляет артибуты
 		replace = require('gulp-replace'), // чистим символы после предыдущего плагина
-// ---------------------------------------------------------------------
-    Path = {
-        Svg : {
-					in : 'in',
-					out: 'out'
-				},
 
-        "output": "./build/static/images/svg/"
+// ----------------------------------- CONFIGURATION --------------------------------------------
+
+// BROWSERSYNC Configuration---------------------------------------------------------------------
+    BrowserSyncConfig = {
+			server: {
+				baseDir: "./build"
+			},
+			tunnel: false,
+			host: 'localhost',
+			port: 3000,
+			notify: false,
+			// open: false,
+			online: false, // Work Offline Without Internet Connection
+			// tunnel: true, tunnel: "projectname", // Demonstration page: http://projectname.localtunnel.me
+		},
+
+// DIRECTORY -------------------------------------------------------------------------------------
+    Path = {
+      Svg : {
+					in : 'in',
+					out: 'out',
+		  },
+		  tunnel: false,
 		};
 
-// Img ------------------------------------------------------------------
+// IMG ------------------------------------------------------------------
   gulp.task('imgDev', () => {
-		return gulp.src(['./src/img/**/*', '!./src/img/svg/**/*' ])
+		return gulp.src(['./src/img/#compress/**/*', '!./src/img/svg/**/*' ])
     .pipe(gulp.dest('build/img/'));
 	});
 
-	gulp.task('imgBuild', () => {
-		return gulp.src(['./src/img/**/*', '!./src/img/svg/**/*' ])
+	gulp.task('imgCompress', () => {
+		return gulp.src(['!./src/img/svg/**/*', '!./src/img/#compress/**/*', './src/img/**/*' ])
 		.pipe(tinypng({
 			key: '78UEHTVIN19cuH3B5ZsGUaTWJ6Vsv3Ev',
-			sigFile: 'src/img/.tinypng-sigs',  // создает лог, чтобы исключить повторения файлов которые сжимались
+			sigFile: 'src/img/#compress/.tinypng-sigs',  // создает лог, чтобы исключить повторения файлов которые сжимались
 			log: true
 	   }))
-    .pipe(gulp.dest('build/img/'));
+    .pipe(gulp.dest('./src/img/#compress/'));
 	});
 
 	gulp.task('fonts', () => {
 		return gulp.src('./src/fonts/**/*')
-    .pipe(gulp.dest('build/fonts/'));
+		.pipe(gulp.dest('build/fonts/'))
+		.pipe(browserSync.stream());
 	});
 
-// Scripts ------------------------------------------------------------------
+// JS ------------------------------------------------------------------
 	gulp.task('libsDev', () => {
 		return gulp.src([
-			// './src/js/libs/**/*', 
-			'./src/js/libs/libsAdd.js', 
+			'./src/js/libs/*.js', 
+			'./src/js/libs/#AddLibs.js', 
 			// 'node_modules/owl.carousel2/dist/owl.carousel.min.js',
 		 ])
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(rigger())  
 		.pipe(concat('libs.js'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('build/js'));
+		.pipe(gulp.dest('build/js'))
+		.pipe(browserSync.stream());
 	});
 
 	gulp.task('libsBuild', () => {
 		return gulp.src([
-			// './src/js/libs/**/*', 
-			'./src/js/libs/libsAdd.js', 
+			'./src/js/libs/*.js', 
+			'./src/js/libs/#AddLibs.js', 
 			// 'node_modules/owl.carousel2/dist/owl.carousel.min.js',
 		 ])
 		.pipe(rigger()) 
@@ -85,7 +106,9 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
 
 	gulp.task('scriptsDev', () => {
 		return gulp.src(['./src/js/*.js'])
-    .pipe(gulp.dest('build/js'));
+		.pipe(plumber())
+		.pipe(gulp.dest('build/js'))
+		.pipe(browserSync.stream()); 
 	});
 
 	gulp.task('scriptsBuild', () => {
@@ -94,25 +117,23 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
     .pipe(gulp.dest('build/js'));
 	});
 
-	// Styles ------------------------------------------------------------------
+	// SASS ------------------------------------------------------------------
 	gulp.task('sassDev', () => {
 		return gulp.src(['./src/sass/style.scss'])
+		    // .pipe(plumber())
 				.pipe(sourcemaps.init())
 				.pipe(sass())
-				.pipe(autoprefixer({
-						overrideBrowserslist:  ['last 10 versions']
-				}))
+				.pipe(autoprefixer({overrideBrowserslist:  ['last 10 versions']}))
 				.pipe(sourcemaps.write('.'))
-				.pipe(gulp.dest('build/css/'));
+				.pipe(gulp.dest('build/css/'))
+				.pipe(browserSync.stream()); 
 	});
 	
 	gulp.task('stylesBuild', () => {
 		return gulp.src(['./src/sass/style.scss'])
 				.pipe(sass({outputStyle: 'compressed'}))
 				.pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
-				.pipe(autoprefixer({
-						overrideBrowserslist:  ['last 10 versions']
-				}))
+				.pipe(autoprefixer({overrideBrowserslist:  ['last 10 versions']}))
 				.pipe(gulp.dest('build/css/'));
 	});
  
@@ -126,21 +147,16 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
 					.pipe(filter(function (file) {
 							return !/\/_/.test(file.path) && !/^_/.test(file.relative);
 					}))
-					.pipe(pug({
-							pretty: true
-					}))
+					.pipe(pug({pretty: true}))
 					.pipe(plumber.stop())
-					.pipe(gulp.dest('./build/'))
+					.pipe(gulp.dest('./build/'));
 	});
 
 // SVG ------------------------------------------------------------------
 gulp.task('svg', () => {
 	return gulp.src('./src/img/svg/*.svg')
-			.pipe(svgmin({
-					js2svg: {
-							pretty: true
-					}
-			}))
+	    .pipe(plumber())
+			.pipe(svgmin({js2svg: {pretty: true}}))
 			.pipe(cheerio({
 					run: function ($) {
 							$('[fill]').removeAttr('fill');
@@ -150,35 +166,32 @@ gulp.task('svg', () => {
 					parserOptions: {xmlMode: true}
 			}))
 			.pipe(replace('&gt;', '>'))
-			.pipe(svgSprite({
-					mode: {
-							symbol: {
-									sprite: "sprite.svg"
-							}
-					}
-			}))
+			.pipe(svgSprite({mode: {symbol: {sprite: "sprite.svg"}}}))
 			.pipe(gulp.dest('./build/img/svg'));
 });
 
+// KIT ------------------------------------------------------------------
 gulp.task('kit', () => {
 	return gulp.src('src/kit/*.kit')
+	.pipe(plumber())
 	.pipe(kit())
 	.pipe(gulp.dest('build/'));
 });
 
-// Watcher 
-// $.gulp.task('watcher', function () {
-// 	$.gulp.watch('./dev/static/images/svg/*.svg', $.gulp.series('svg'));
-// 	$.gulp.watch('./dev/static/js/**/*.js', $.gulp.series('js:dev'));
-// });
+// CLEANER ------------------------------------------------------------------
+gulp.task('clearBuild', () => {
+  return del(['build/*'])
+});
 
-
+// WATCHER ------------------------------------------------------------------
 gulp.task('watch', () => {
-	gulp.watch('./src/pug/**/*.pug', gulp.parallel('pug')); //PUG
-	gulp.watch('./src/sass/**/*.scss', gulp.parallel('sassDev'));  //SASS
-	gulp.watch('./src/img/**/*.{png,jpg,gif}', gulp.parallel('imgBuild')); //IMG
-	gulp.watch('./src/img/svg/*.svg', gulp.parallel('svg'));
-	gulp.watch('./src/js/*.js', gulp.parallel('scriptsDev'));
-	gulp.watch('./src/js/libs*.js', gulp.parallel('scriptsDev'));
-
+	browserSync.init(BrowserSyncConfig);
+	gulp.watch('./src/**/*.pug', gulp.parallel('pug')).on('change', browserSync.reload); //PUG +
+	gulp.watch('./src/**/*.kit', gulp.parallel('kit')).on('change', browserSync.reload); //KIT + 
+	gulp.watch('./src/**/*.scss', gulp.parallel('sassDev'));  //SASS +
+	gulp.watch('./src/img/**/*.{png,jpg,gif}', gulp.parallel('imgCompress')); //IMG +
+	gulp.watch('./src/img/#compress/**/*.{png,jpg,gif}', gulp.parallel('imgDev')); //IMG +
+	gulp.watch('./src/img/svg/*.svg', gulp.parallel('svg')); //SVG +
+	gulp.watch('./src/js/*.js', gulp.parallel('scriptsDev')); //JS SCRIPTS +
+	gulp.watch('./src/js/libs/*.js', gulp.parallel('libsDev')); //JS LIBS +
 });
