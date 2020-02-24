@@ -5,7 +5,8 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
     tinypng = require('gulp-tinypng-compress'), // сжатие изображений
 // JS ---------------------------------------------------------------------
     concat  = require('gulp-concat'), // обэдинение файлов
-    uglify = require('gulp-uglify'), // минификация скриптов
+		uglify = require('gulp-uglify'), // минификация скриптов
+		rigger = require('gulp-rigger'), // обэдинение в определенной последовательности:  //= folder/file.js
 // SASS ---------------------------------------------------------------------
     sourcemaps = require('gulp-sourcemaps'),
     sass       = require('gulp-sass'),
@@ -59,11 +60,12 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
 // Scripts ------------------------------------------------------------------
 	gulp.task('libsDev', () => {
 		return gulp.src([
-			'./src/js/libs/**/*', 
-			'!./src/js/scripts.js',
-			// 'node_modules/owl.carousel2/dist/owl.carousel.min.js'
+			// './src/js/libs/**/*', 
+			'./src/js/libs/libsAdd.js', 
+			// 'node_modules/owl.carousel2/dist/owl.carousel.min.js',
 		 ])
 		.pipe(sourcemaps.init())
+		.pipe(rigger())  
 		.pipe(concat('libs.js'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('build/js'));
@@ -71,9 +73,11 @@ let plumber = require('gulp-plumber'), // Отслеживание ошибок 
 
 	gulp.task('libsBuild', () => {
 		return gulp.src([
-			'./src/js/libs/**/*', 
-			'!./src/js/scripts.js',
+			// './src/js/libs/**/*', 
+			'./src/js/libs/libsAdd.js', 
+			// 'node_modules/owl.carousel2/dist/owl.carousel.min.js',
 		 ])
+		.pipe(rigger()) 
 		.pipe(concat('libs.js'))
 		.pipe(uglify())
     .pipe(gulp.dest('build/js'));
