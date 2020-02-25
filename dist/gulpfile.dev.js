@@ -10,7 +10,12 @@ del = require('del'),
     // IMG ---------------------------------------------------------------------
 tinypng = require('gulp-tinypng-compress'),
     // сжатие изображений
-// JS ---------------------------------------------------------------------
+imagemin = require('gulp-imagemin'),
+    imageminJpegRecompress = require('imagemin-jpeg-recompress'),
+    pngquant = require('imagemin-pngquant'),
+    cache = require('gulp-cache'),
+    newer = require('gulp-newer'),
+    // JS ---------------------------------------------------------------------
 rigger = require('gulp-rigger'),
     // обэдинение в определенной последовательности:  //= folder/file.js
 concat = require('gulp-concat'),
@@ -79,7 +84,8 @@ filePath = {
   jsScripts: {
     "in": './src/js/*.js',
     out: 'build/js'
-  }
+  },
+  img: {}
 }; // PUG ------------------------------------------------------------------
 
 
@@ -142,13 +148,29 @@ gulp.task('imgMover', function () {
 gulp.task('imgCompressMover', function () {
   return gulp.src(['!./src/img/_compress/*.tinypng-sigs', './src/img/_compress/**/*']).pipe(gulp.dest('build/img/'));
 });
-gulp.task('tinyPngCompress', function () {
+gulp.task('tinyPngHandler', function () {
   return gulp.src(['!./src/img/svg/', '!./src/img/_compress/', './src/img/**/*']).pipe(tinypng({
     key: '78UEHTVIN19cuH3B5ZsGUaTWJ6Vsv3Ev',
     sigFile: 'src/img/_compress/.tinypng-sigs',
     // создает лог, чтобы исключить повторения файлов которые сжимались
     log: true
   })).pipe(gulp.dest('./src/img/_compress/'));
+});
+gulp.task('imgOflineHandler', function () {
+  return gulp.src(['!./src/img/svg/', '!./src/img/_compress/', './src/img/**/*']).pipe(newer('./build/img/')).pipe(imagemin([imagemin.gifsicle({
+    interlaced: true
+  }), imagemin.mozjpeg({
+    progressive: true
+  }), imageminJpegRecompress({
+    loops: 5,
+    min: 70,
+    max: 75,
+    quality: 'high'
+  }), imagemin.svgo(), imagemin.optipng({
+    optimizationLevel: 3
+  }), pngquant([0.8, 0.8])], {
+    verbose: true
+  })).pipe(gulp.dest('./build/img/'));
 }); // SVG ------------------------------------------------------------------
 
 gulp.task('svg', function () {
@@ -189,8 +211,7 @@ gulp.task('watch', function () {
   gulp.watch('./src/**/*.kit', gulp.parallel('kit')).on('change', browserSync.reload); //KIT + 
 
   gulp.watch('./src/**/*.scss', gulp.parallel('sassDev')); //SASS +
-
-  gulp.watch('./src/img/**/*.{png,jpg,gif}', gulp.series('imgCompress', 'imgDev')); //IMG +
+  // gulp.watch('./src/img/**/*.{png,jpg,gif}', gulp.series('imgCompress', 'imgDev')); //IMG +
   // gulp.watch('./src/img/#compress/**/*.{png,jpg,gif}', gulp.parallel('imgDev')); //IMG +
 
   gulp.watch('./src/img/svg/*.svg', gulp.parallel('svg')); //SVG +
@@ -201,7 +222,9 @@ gulp.task('watch', function () {
 }); // TASKER ------------------------------------------------------------------
 
 gulp.task('dev', gulp.series('clearBuild', // 'imgCompress',
-gulp.parallel('pug', 'kit', 'sassDev', 'libsDev', 'scriptsDev', 'imgDev', 'svg', 'fonts')));
+gulp.parallel('pug', 'kit', 'sassDev', 'libsDev', 'scriptsDev', // 'imgDev',
+'svg', 'fonts')));
 gulp.task('build', gulp.series('clearBuild', 'pug', 'kit', 'sassBuild', 'libsBuild', 'scriptsBuild', // 'imgCompress',
-'imgDev', 'svg', 'fonts'));
+// 'imgDev',
+'svg', 'fonts'));
 gulp.task('default', gulp.series('dev', gulp.parallel('watch')));
